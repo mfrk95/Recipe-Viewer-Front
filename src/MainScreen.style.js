@@ -25,7 +25,7 @@ export const generalStyles = makeStyles((theme) => ({
   },
 
   modalContainer: {
-    position: "absolute",
+    position: "absolute", 
     top: 200,
     left: 400,
     backgroundColor: "white",
