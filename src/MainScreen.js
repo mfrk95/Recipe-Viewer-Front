@@ -5,6 +5,8 @@ import MainTitle from "./components/MainTitle/MainTitle.component";
 import TextInput from "./components/TextInput/TextInput.component";
 import FeaturedRecipes from "./components/FeaturedRecipes/FeaturedRecipes.component";
 import { generalStyles } from "./MainScreen.style";
+import CardRecipe from "./components/CardRecipe/CardRecipe.component";
+
 function MainScreen() {
   const [mainTitle, setMainTitle] = React.useState("Recipes");
   const [isModalAddOpen, setIsModalAddOpen] = React.useState(false);
@@ -13,7 +15,9 @@ function MainScreen() {
   const [recipeCategory, setRecipeCategory] = React.useState("");
 
   const [selectedImage, setSelectedImage] = React.useState();
-  const [imageBackground, setImageBackground] = React.useState('url("images/mainBackground.png")');
+  const [imageBackground, setImageBackground] = React.useState(
+    'url("images/mainBackground.png")'
+  );
   const classes = generalStyles();
 
   const handleClickAddRecipe = () => {
@@ -53,30 +57,61 @@ function MainScreen() {
       return <FeaturedRecipes />;
     } else if (mainTitle === "Pasta") {
       return (
-        <Grid>
-          <img
-            style={{ width: 200, height: 200, borderRadius: 10 }}
-            src="https://www.foodiecrush.com/wp-content/uploads/2020/12/Bolognese-foodiecrush.com-023.jpg"
-          />
+        <Grid
+          xs={12}
+          style={{
+            marginTop: "3em",
+            marginLeft: "4em",
+            display: "flex",
+            flexDirection: "row",
+            textAlign: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Grid xs={3}>
+            <CardRecipe
+              recipeTitle="Spaghetti Carbonara"
+              recipeImage={
+                "https://www.foodiecrush.com/wp-content/uploads/2020/12/Bolognese-foodiecrush.com-023.jpg"
+              }
+            />
+          </Grid>
+          <Grid xs={3} style={{}}>
+            <CardRecipe
+              recipeTitle="Fetuccine Alfredo"
+              recipeImage={
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTin1_6_0COzKTDupG2rzbveEh1uZNwiNS18Q&usqp=CAU"
+              }
+            />
+          </Grid>
+          <Grid xs={3} style={{}}>
+            <CardRecipe
+              recipeTitle="Potato Gnocci"
+              recipeImage={
+                "https://i1.wp.com/baketotheroots.de/wp-content/uploads/2021/03/SQ_200706_One-Pot-Gnocchi-with-Italian-Sausage.jpg?fit=1200%2C1200&ssl=1"
+              }
+            />
+          </Grid>
         </Grid>
       );
     }
   };
+
+  React.useEffect(() => {
+    fetch("http://localhost:8080/recipesAll?Pasta").then((resp) => {
+      resp.json().then((res) => {
+        console.log("La respuesta: ", res);
+      });
+    });
+  });
 
   return (
     <Grid>
       <Menu setTitle={setMainTitle} setImage={setImageBackground} />
       <MainTitle title={mainTitle} imageBackground={imageBackground} />
       <Grid className={classes.textAndButtonContainer}>
-        <Grid xs={4}>
+        <Grid xs={5}>
           <TextInput />
-        </Grid>
-        <Grid className={classes.buttonAndSpanContainer}>
-          <span className={classes.spanButton}>
-            <Button variant="outlined" onClick={handleClickAddRecipe} className={classes.addButton}>
-              <i class="fas fa-plus fa-lg"></i>
-            </Button>
-          </span>
         </Grid>
       </Grid>
       {renderContent()}
@@ -128,11 +163,19 @@ function MainScreen() {
               onChange={handleChangeImageSelect}
             />
             <label htmlFor="contained-button-file">
-              <Button variant="contained" color="primary" component="span" style={{ marginTop: 20, marginLeft: 20 }}>
+              <Button
+                variant="contained"
+                color="primary"
+                component="span"
+                style={{ marginTop: 20, marginLeft: 20 }}
+              >
                 Select Image
               </Button>
             </label>
-            <Button onClick={handleClickUploadRecipe} style={{ marginLeft: 20, marginTop: 20 }}>
+            <Button
+              onClick={handleClickUploadRecipe}
+              style={{ marginLeft: 20, marginTop: 20 }}
+            >
               Upload
             </Button>
           </Grid>

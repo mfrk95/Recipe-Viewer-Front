@@ -12,7 +12,14 @@ export default function FeaturedRecipes() {
           marginTop: 20,
         }}
       >
-        <Typography style={{ fontFamily: "Raleway", fontSize: 20, fontWeight: "bold", color: "gray" }}>
+        <Typography
+          style={{
+            fontFamily: "Raleway",
+            fontSize: 20,
+            fontWeight: "bold",
+            color: "gray",
+          }}
+        >
           Featured Recipes
         </Typography>
       </Grid>

@@ -36,38 +36,74 @@ function Menu(props) {
 
   return (
     <Grid className={classes.mainContainer}>
-      <Grid xs={2} className={classes.firstButton}>
-        <Button variant="contained" fullWidth={true} className={classes.roundBorders} onClick={handleClickHome}>
-          <Typography className={classes.textStyle}>Home</Typography>
+      <Grid xs={1} className={classes.firstButton}>
+        <Button
+          variant="contained"
+          fullWidth={true}
+          className={classes.roundBorders}
+          style={{ height: 36 }}
+          onClick={handleClickHome}
+        >
+          <i class="fas fa-home fa-lg" style={{ color: "gray" }}></i>
         </Button>
       </Grid>
       <Grid xs={2} className={classes.buttons}>
-        <Button variant="contained" fullWidth={true} className={classes.roundBorders} onClick={handleClickPasta}>
+        <Button
+          variant="contained"
+          fullWidth={true}
+          className={classes.roundBorders}
+          onClick={handleClickPasta}
+        >
           <Typography className={classes.textStyle}>Pasta</Typography>
         </Button>
       </Grid>
       <Grid xs={2} className={classes.buttons}>
-        <Button variant="contained" fullWidth={true} className={classes.roundBorders} onClick={handleClickMeatPoultry}>
+        <Button
+          variant="contained"
+          fullWidth={true}
+          className={classes.roundBorders}
+          onClick={handleClickMeatPoultry}
+        >
           <Typography className={classes.textStyle}>Meat & Poultry</Typography>
         </Button>
       </Grid>
       <Grid xs={2} className={classes.buttons}>
-        <Button variant="contained" fullWidth={true} className={classes.roundBorders} onClick={handleClickSeafood}>
+        <Button
+          variant="contained"
+          fullWidth={true}
+          className={classes.roundBorders}
+          onClick={handleClickSeafood}
+        >
           <Typography className={classes.textStyle}>Seafood</Typography>
         </Button>
       </Grid>
       <Grid xs={2} className={classes.buttons}>
-        <Button variant="contained" fullWidth={true} className={classes.roundBorders} onClick={handleClickVeggie}>
+        <Button
+          variant="contained"
+          fullWidth={true}
+          className={classes.roundBorders}
+          onClick={handleClickVeggie}
+        >
           <Typography className={classes.textStyle}>Veggie</Typography>
         </Button>
       </Grid>
       <Grid xs={2} className={classes.buttons}>
-        <Button variant="contained" fullWidth={true} className={classes.roundBorders} onClick={handleClickDessert}>
+        <Button
+          variant="contained"
+          fullWidth={true}
+          className={classes.roundBorders}
+          onClick={handleClickDessert}
+        >
           <Typography className={classes.textStyle}>Dessert</Typography>
         </Button>
       </Grid>
       <Grid xs={2} className={classes.buttons}>
-        <Button variant="contained" fullWidth={true} className={classes.roundBorders} onClick={handleClickBaking}>
+        <Button
+          variant="contained"
+          fullWidth={true}
+          className={classes.roundBorders}
+          onClick={handleClickBaking}
+        >
           <Typography className={classes.textStyle}>Baking</Typography>
         </Button>
       </Grid>
